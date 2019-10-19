@@ -30,6 +30,7 @@ export function register(config) {
       process.env.PUBLIC_URL,
       window.location.href,
     );
+
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
@@ -38,6 +39,7 @@ export function register(config) {
     }
 
     window.addEventListener("load", () => {
+
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
@@ -89,7 +91,6 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log("Content is cached for offline use.");
-
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
@@ -100,10 +101,7 @@ function registerValidSW(swUrl, config) {
       };
     })
     .catch(error => {
-      console.error(
-        "Error during service worker registration:",
-        error,
-      );
+      console.error('Error during service worker registration:', error);
     });
 }
 
