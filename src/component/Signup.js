@@ -1,55 +1,7 @@
-// import React from 'react';
-// import { useFormState } from 'react-use-form-state';
-// import { axiosWithAuth } from './axiosWithAuth';
-
-// export default function Signup({ onSubmit }) {
-//   const [formState, { text, email, password }] = useFormState();
-
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     axiosWithAuth()
-//       .post('/auth/login',{ headers: {
-//         "Content-Type": "application/json"
-//       }})
-//       .then(res => {
-//         console.log(res)
-//       })
-//       .catch(err => {
-//         console.log(err)
-//       })
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor="name">Name</label>
-//       <input {...text('name')} required />
-
-//       <label htmlFor="email">Email</label>
-//       <input {...email('email')} required />
-
-//       <label htmlFor="password">Password</label>
-//       <input {...password('password')} required minLength="8" />
-
-//       <label htmlFor="date">Date of birth</label>
-//       <input {...text('date')} required />
-//       <button>Submit</button>
-//     </form>
-//   );
-// }
-
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
-import styled from 'styled-components';
-
-const Button = styled.button`
-  background: black;
-  border-style: solid;
-  border-color: black;
-  color: white;
-  
-`;
 
 const Signup = ({ errors, touched, status }) => {
 
@@ -80,7 +32,7 @@ const Signup = ({ errors, touched, status }) => {
         <label>Date of Birth</label>
         <Field text="type" name="dob" placeholder="Date of Birth" />
 
-        <Button type="submit" value="Login">Submit!</Button>
+        <button type="submit" value="Login">Submit!</button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users.username}</p>
