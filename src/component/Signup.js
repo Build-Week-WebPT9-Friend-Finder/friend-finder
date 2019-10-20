@@ -59,7 +59,7 @@ const formikHOC = withFormik({
     axios
       .post("https://friend-finder-levi.herokuapp.com/api/auth/register", values)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
         setStatus(res.data);
         resetForm();
       })
