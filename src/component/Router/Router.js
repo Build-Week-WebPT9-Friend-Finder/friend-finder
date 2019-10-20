@@ -8,6 +8,8 @@ import {
 
   import Login from '../Login';
   import Signup from '../Signup';
+  import Home from '../Home';
+  import Logout from '../Logout';
   import PrivateRouter from '../Router/PrivateRouter';
 
 
@@ -48,11 +50,11 @@ export default function ReactRouter(){
             </nav>
 
             <Switch>
-                <Route path="/" exact component={Login}/>
-                <PrivateRouter path="/login" exact component={Login}/>
+                <PrivateRouter path="/" exact component={Home}/>
+                <Route path="/login" exact component={Login}/>
                 <Route path="/signup" exact component={Signup}/>
+                <Route path="/logout" exact component={Logout}/>
             </Switch>
         </Router>
     )
 }
-{/* <Route path="/logout" exact component={Logout}/> */}
