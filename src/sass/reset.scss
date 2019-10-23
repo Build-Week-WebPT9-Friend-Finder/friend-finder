@@ -7,7 +7,7 @@
  * more comprehensive resets unnecessary at
  * least for smaller projects.
  */
-:root {
+html {
   box-sizing: border-box;
   // default to 16px without affecting user's ability to change browser font size
   font-size: 100%;
@@ -19,12 +19,6 @@
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  font-size: 1rem;
-  line-height: 1.25rem;
 }
 
 ol,
