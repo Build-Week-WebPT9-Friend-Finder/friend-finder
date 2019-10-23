@@ -6,7 +6,7 @@ nav {
   display: flex;
   justify-content: center;
   justify-content: space-around;
-  background-color: lightgray;
+  background-color: $colorPrimaryLight;
 
   a {
     color: black;
@@ -25,10 +25,17 @@ form {
   }
 
   input {
+    border: solid 1px #080808;
     border-radius: 10px;
-    outline: none;
-    padding: 10px 10px;
     margin-bottom: 10px;
+    outline: none; // added border on focus for a11y
+    padding: 10px 10px;
+
+    &:focus {
+      // replaces outline rule for a11y
+      border: solid 1px $colorPrimary;
+      box-shadow: inset 1px 0 2px transparentize($colorPrimary, 0.5);
+    }
   }
 
   button {
