@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import WebFont from "webfontloader";
-import { reducer } from "./reducers";
+import { usersReducer } from "./reducers/users";
 
 WebFont.load({
   google: {
@@ -21,7 +21,7 @@ const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
+  usersReducer,
   composeEnhancers(applyMiddleware(thunk)),
 );
 

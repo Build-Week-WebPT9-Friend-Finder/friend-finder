@@ -4,7 +4,7 @@ export const FETCHING_USERS_START = "FETCHING_USERS_START";
 export const FETCHING_USERS_SUCCESS = "FETCHING_USERS_SUCCESS";
 export const FETCHING_USERS_FAILURE = "FETCHING_USERS_FAILURE";
 
-export const getUser = () => dispatch => {
+export const getAllUsers = () => dispatch => {
   dispatch({ type: FETCHING_USERS_START });
   axiosWithAuth()
     .get("/user")

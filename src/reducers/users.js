@@ -2,7 +2,7 @@ import {
   FETCHING_USERS_START,
   FETCHING_USERS_SUCCESS,
   FETCHING_USERS_FAILURE,
-} from "../actions";
+} from "../actions/users";
 
 const initialState = {
   users: [],
@@ -10,7 +10,7 @@ const initialState = {
   error: "",
 };
 
-export const reducer = (state = initialState, action) => {
+export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_USERS_START:
       return {
