@@ -1,7 +1,7 @@
 import axios from "axios";
 import getToken from "../utils/getToken";
 
-export const axiosWithAuth = () => {
+const axiosWithAuth = () => {
   const auth_token = getToken();
 
   return axios.create({
@@ -12,3 +12,6 @@ export const axiosWithAuth = () => {
     },
   });
 };
+
+export default axiosWithAuth;
+export { axiosWithAuth };
