@@ -3,6 +3,7 @@ import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import ErrorMsg from "./ErrorMsg";
+import axiosWithAuth from "./axiosWithAuth";
 
 const Login = ({ errors, touched, status }) => {
   const [user, setUser] = useState([]);
@@ -68,6 +69,13 @@ const formikHOC = withFormik({
       .then(res => {
         console.log(res.data);
         localStorage.setItem("access_token", res.data.token);
+
+        axiosWithAuth()
+          .get(
+            `https://friend-finder-levi.herokuapp.com/api/user/${res.data.user_id}`,
+          )
+          .then(res => console.log(res))
+          .catch(err => console.error(err));
       })
       .catch(err => console.error(err));
   },
