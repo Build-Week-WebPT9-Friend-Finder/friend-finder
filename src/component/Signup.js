@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import axios from "axios";
 
 const Signup = ({ errors, touched, status }) => {
-
   const [user, setUser] = useState([]);
 
   useEffect(() => {

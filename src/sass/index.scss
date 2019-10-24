@@ -1,6 +1,6 @@
 nav{
-    padding: 30px;
-    display: flex;
+    padding: 30px !important;
+    display: flex !important;
     justify-content: center;
     justify-content: space-around;
     background-color: lightgray;
@@ -34,3 +34,13 @@ form{
         outline:none;
     }
 }
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    
+    .ui.card{
+        margin: 10px;
+    }
+}
+
