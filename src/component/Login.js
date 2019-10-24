@@ -1,7 +1,15 @@
+/** @jsx jsx */
 import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { css, jsx } from "@emotion/core";
+import { danger } from "../sass/_colors.scss";
+
+const error = css`
+  color: ${danger};
+  font-weight: bold;
+`;
 
 const Login = ({ errors, touched, status }) => {
   const [user, setUser] = useState([]);
@@ -18,7 +26,9 @@ const Login = ({ errors, touched, status }) => {
       <Form>
         <label>Email</label>
         <Field type="email" name="email" placeholder="Email" />
-        {touched.email && errors.email && <p>{errors.email}</p>}
+        {touched.email && errors.email && (
+          <p css={error}>{errors.email}</p>
+        )}
 
         <label>Password</label>
         <Field
@@ -28,7 +38,7 @@ const Login = ({ errors, touched, status }) => {
         />
 
         {touched.password && errors.password && (
-          <p>{errors.password}</p>
+          <p css={error}>{errors.password}</p>
         )}
         <button type="submit" value="Login">
           Submit!
