@@ -1,9 +1,5 @@
-import React from 'react';
+import React from "react";
 
-export default function Logout(){
-    return(
-        <>
-            {window.localStorage.clear()}
-        </>
-    )
+export default function Logout() {
+  return <>{window.localStorage.clear()}</>;
 }
