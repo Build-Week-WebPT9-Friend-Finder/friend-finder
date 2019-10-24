@@ -17,11 +17,15 @@ const Login = ({ errors, touched, status }) => {
       <h1>Login</h1>
       <Form>
         <label>Email</label>
-        <Field text="type" name="email" placeholder="Email" />
+        <Field type="email" name="email" placeholder="Email" />
         {touched.email && errors.email && <p>{errors.email}</p>}
 
         <label>Password</label>
-        <Field text="type" name="password" placeholder="Password" />
+        <Field
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
 
         {touched.password && errors.password && (
           <p>{errors.password}</p>
@@ -45,8 +49,12 @@ const formikHOC = withFormik({
     };
   },
   validationSchema: Yup.object().shape({
-    email: Yup.string().required(),
-    password: Yup.string().required(),
+    email: Yup.string()
+      .email()
+      .required(),
+    password: Yup.string()
+      .min(8)
+      .required(),
   }),
   handleSubmit(values, { setStatus, resetForm }) {
     axios
