@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import { connect } from "react-redux";
 import { getAllUsers } from "../actions/users";
+import Cards from "./UI/Cards";
+import Card from "./UI/Card";
 
 function Home({ getAllUsers, users, isFetching, error }) {
   useEffect(() => {
@@ -22,17 +24,17 @@ function Home({ getAllUsers, users, isFetching, error }) {
   return (
     <div>
       <h1>List of Users</h1>
-      <>
+      <Cards>
         {users.map(user => (
-          <div key={user.user_id}>
+          <Card key={user.user_id}>
             <p>{user.name}</p>
             <p>{user.bio}</p>
             <p>{user.dob}</p>
             <p>{user.gender}</p>
             <p>{user.location}</p>
-          </div>
+          </Card>
         ))}
-      </>
+      </Cards>
     </div>
   );
 }
