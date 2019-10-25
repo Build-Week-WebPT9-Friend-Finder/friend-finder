@@ -1,18 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 
-const Header = ({ Elem, children, className = "", ...props }) => (
-  <Elem
-    {...props}
-    className={`${
-      className ? className + " card-header" : "card-header"
-    }`}
-  >
-    {children}
-  </Elem>
-);
-
-const CardHeader = styled(Header)`
+const styles = css`
   color: rgba(0, 0, 0, 0.85);
   display: block;
   font-size: 1.25rem;
@@ -27,5 +16,22 @@ const CardHeader = styled(Header)`
     text-decoration: none;
   }
 `;
+
+const CardHeader = ({
+  children,
+  className = "",
+  Elem = "h3",
+  ...props
+}) => (
+  <Elem
+    css={styles}
+    {...props}
+    className={`${
+      className ? className + " card-header" : "card-header"
+    }`}
+  >
+    {children}
+  </Elem>
+);
 
 export default CardHeader;
