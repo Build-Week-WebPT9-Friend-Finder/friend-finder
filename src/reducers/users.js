@@ -10,7 +10,7 @@ const initialState = {
   error: "",
 };
 
-export const usersReducer = (state = initialState, action) => {
+export const users = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_USERS_START:
       return {
