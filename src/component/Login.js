@@ -40,9 +40,6 @@ const Login = ({ errors, touched, status }) => {
           Submit!
         </button>
       </Form>
-      {user.map(users => (
-        <p key={users.id}>{users.message}</p>
-      ))}
     </div>
   );
 };
