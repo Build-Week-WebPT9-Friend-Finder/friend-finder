@@ -3,9 +3,15 @@ import { axiosWithAuth } from "./axiosWithAuth";
 import { connect } from "react-redux";
 import { getAllUsers } from "../actions/users";
 import Cards from "./UI/Cards";
-import Card from "./UI/Card";
+import Card, {
+  CardHeader,
+  CardContent,
+  CardMeta,
+  CardDescription,
+  CardAvatar,
+} from "./UI/Card";
 
-function Home({ getAllUsers, users, isFetching, error }) {
+function Home({ getAllUsers, users, login }) {
   useEffect(() => {
     axiosWithAuth()
       .get("/user")
@@ -17,7 +23,7 @@ function Home({ getAllUsers, users, isFetching, error }) {
       });
   }, [getAllUsers]);
 
-  if (isFetching) {
+  if (users.isFetching) {
     return <div>Fetching your data</div>;
   }
 
@@ -25,7 +31,7 @@ function Home({ getAllUsers, users, isFetching, error }) {
     <div>
       <h1>List of Users</h1>
       <Cards>
-        {users.map(user => (
+        {users.users.map(user => (
           <Card key={user.user_id}>
             <p>{user.name}</p>
             <p>{user.bio}</p>
@@ -35,15 +41,33 @@ function Home({ getAllUsers, users, isFetching, error }) {
           </Card>
         ))}
       </Cards>
+      <h2>Logged In User</h2>
+      {login ? (
+        <Card>
+          <CardContent>
+            <CardHeader>
+              <CardAvatar
+                style={{ marginRight: "8px" }}
+                img="https://randomuser.me/api/portraits/men/75.jpg"
+              />
+              {login.name}
+              <CardMeta>Email: {login.email}</CardMeta>
+            </CardHeader>
+            <CardDescription>Born on {login.dob}</CardDescription>
+          </CardContent>
+        </Card>
+      ) : (
+        <div>No user logged in! That's not supposed to happen...</div>
+      )}
     </div>
   );
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     users: state.users,
-    isFetching: state.isFetching,
-    error: state.error,
+    login: state.login,
   };
 };
 
