@@ -1,15 +1,25 @@
 import React from "react";
-import ReactRouter from "./component/Router/Router";
+import { Switch, Route } from "react-router-dom";
+import AppPage from "./layouts/templates/AppPage";
+import PrivateRouter from "./component/Router/PrivateRouter";
+import Home from "./component/Home";
+import Signup from "./component/Signup";
+import Login from "./component/Login";
+import Logout from "./component/Logout";
 import "./sass/index.scss";
-import SqueezePage from "./layouts/templates/SqueezePage";
 
 function App() {
   return (
-    <div className="App">
-      <SqueezePage>
-        <ReactRouter />
-      </SqueezePage>
-    </div>
+    <>
+      <AppPage>
+        <Switch>
+          <PrivateRouter path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/logout" exact component={Logout} />
+        </Switch>
+      </AppPage>
+    </>
   );
 }
 

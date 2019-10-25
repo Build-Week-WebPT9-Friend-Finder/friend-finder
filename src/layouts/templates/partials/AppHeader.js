@@ -8,7 +8,7 @@ const styles = css`
   box-shadow: 2px 1px 2px ${greyLight};
   display: flex;
   height: 4rem;
-  justify-content: flex-start;
+  justify-content: space-between;
 `;
 
 const AppHeader = ({ children }) => (

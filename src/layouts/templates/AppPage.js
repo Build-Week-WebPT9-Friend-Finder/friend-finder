@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import AppHeader from "./partials/AppHeader";
+import AppNav from "../../component/AppNav";
 import Logo from "../../component/Logo";
 
 const styles = css`
@@ -15,7 +16,7 @@ const AppPage = ({ children }) => (
   <div className="app-wrapper" css={styles}>
     <AppHeader>
       <Logo />
-      {/* Nav here when Router structure allows it */}
+      <AppNav />
     </AppHeader>
     {children}
   </div>
