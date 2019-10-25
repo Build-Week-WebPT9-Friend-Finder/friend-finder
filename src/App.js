@@ -8,7 +8,7 @@ import Login from "./component/Login";
 import Logout from "./component/Logout";
 import "./sass/index.scss";
 
-const App = () => {
+function App() {
   return (
     <>
       <AppPage>
@@ -21,6 +21,6 @@ const App = () => {
       </AppPage>
     </>
   );
-};
+}
 
 export default App;
