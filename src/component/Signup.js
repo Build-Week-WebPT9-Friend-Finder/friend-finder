@@ -37,9 +37,6 @@ const Signup = ({ errors, touched, status }) => {
           Submit!
         </button>
       </Form>
-      {user.map(users => (
-        <p key={users.id}>{users.username}</p>
-      ))}
     </div>
   );
 };
