@@ -47,17 +47,7 @@ const AppNav = ({ auth }) => {
             Logout
           </NavLink>
         </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <NavLink exact to="/login" activeStyle={activeStyle}>
-            Login
-          </NavLink>
-
-          <NavLink exact to="/signup" activeStyle={activeStyle}>
-            Signup
-          </NavLink>
-        </React.Fragment>
-      )}
+      ) : null}
     </nav>
   );
 };
