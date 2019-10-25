@@ -9,7 +9,7 @@ export const getAllUsers = () => dispatch => {
   axiosWithAuth()
     .get("/user")
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: FETCHING_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
