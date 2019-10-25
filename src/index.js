@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import WebFont from "webfontloader";
+import App from "./App";
 import reducer from "./reducers/";
 import getLocalUserId from "./utils/getLocalUserId";
 import { LOGIN_USER } from "./actions/login";
@@ -36,7 +37,9 @@ if (getLocalUserId()) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />,
+    <Router>
+      <App />,
+    </Router>
   </Provider>,
   document.getElementById("root"),
 );
