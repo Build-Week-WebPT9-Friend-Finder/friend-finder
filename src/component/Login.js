@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import store from "../index";
 import ErrorMsg from "./ErrorMsg";
-import axiosWithAuth from "./axiosWithAuth";
+import { LOGIN_USER } from "../actions/login";
+import getUser from "../utils/getUser";
 
 const Login = ({ errors, touched, status }) => {
   const [user, setUser] = useState([]);
@@ -69,13 +71,13 @@ const formikHOC = withFormik({
       .then(res => {
         console.log(res.data);
         localStorage.setItem("access_token", res.data.token);
-
-        axiosWithAuth()
-          .get(
-            `https://friend-finder-levi.herokuapp.com/api/user/${res.data.user_id}`,
-          )
-          .then(res => console.log(res))
-          .catch(err => console.error(err));
+        localStorage.setItem("logged_in_user_id", res.data.user_id);
+        getUser(res.data.user_id).then(user => {
+          store.dispatch({
+            type: LOGIN_USER,
+            payload: user,
+          });
+        });
       })
       .catch(err => console.error(err));
   },
