@@ -1,14 +1,16 @@
 import React from "react";
-import "./App.css";
 import ReactRouter from "./component/Router/Router";
 import "./sass/index.scss";
+import SqueezePage from "./layouts/templates/SqueezePage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ReactRouter />
-    </div>
+    <>
+      <SqueezePage>
+        <ReactRouter />
+      </SqueezePage>
+    </>
   );
-}
+};
 
 export default App;

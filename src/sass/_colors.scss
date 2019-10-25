@@ -1,0 +1,33 @@
+$colorPrimary: #a6598c;
+$colorPrimaryLight: #bc96af;
+$colorPrimaryDark: #794166;
+$colorSecondary: #31bc81;
+$colorSecondaryLight: #6cdbac;
+$colorSecondaryDark: #207853;
+$colorSuccess: #469b50;
+$colorInfo: #1e91d6;
+$colorDanger: #a31621;
+$colorWarning: #e4cc37;
+$colorGrey: #3d3a4b;
+$colorGreyLight: #b0aeb8;
+$colorGreyDark: #222029;
+$colorBlack: #060607;
+$colorWhite: #ededee;
+
+:export {
+  primary: $colorPrimary;
+  primaryLight: $colorPrimaryLight;
+  primaryDark: $colorPrimaryDark;
+  secondary: $colorSecondary;
+  secondaryLight: $colorSecondaryLight;
+  secondaryDark: $colorSecondaryDark;
+  success: $colorSuccess;
+  info: $colorInfo;
+  danger: $colorDanger;
+  warning: $colorWarning;
+  grey: $colorGrey;
+  greyLight: $colorGreyLight;
+  greyDark: $colorGreyDark;
+  black: $colorBlack;
+  white: $colorWhite;
+}

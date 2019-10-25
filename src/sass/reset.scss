@@ -1,0 +1,32 @@
+/**
+ * Simple CSS reset without all the bells &
+ * whistles that come with a more extensive
+ * reset like Eric Meyer's CSS Reset or
+ * Normalize.css. Current browser default
+ * styles are consistent enough now to make
+ * more comprehensive resets unnecessary at
+ * least for smaller projects.
+ */
+html {
+  box-sizing: border-box;
+  // default to 16px without affecting user's ability to change browser font size
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}

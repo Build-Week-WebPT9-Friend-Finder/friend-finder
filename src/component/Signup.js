@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import axios from "axios";
 
 const Signup = ({ errors, touched, status }) => {
-
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     if (status) {
       setUser([...user, status]);
     }
-  }, [status]);
+  }, [status, user]);
 
   return (
     <div className="form-container">
@@ -27,19 +26,23 @@ const Signup = ({ errors, touched, status }) => {
 
         <label>Password</label>
         <Field text="type" name="password" placeholder="Password" />
-        {touched.password && errors.password && <p>{errors.password}</p>}
+        {touched.password && errors.password && (
+          <p>{errors.password}</p>
+        )}
 
         <label>Date of Birth</label>
         <Field text="type" name="dob" placeholder="Date of Birth" />
 
-        <button type="submit" value="Login">Submit!</button>
+        <button type="submit" value="Login">
+          Submit!
+        </button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users.username}</p>
       ))}
     </div>
-  )
-}
+  );
+};
 
 const formikHOC = withFormik({
   mapPropsToValues({ name, password, email, dob }) {
@@ -47,24 +50,27 @@ const formikHOC = withFormik({
       name: name || "",
       email: email || "",
       password: password || "",
-      dob: dob || ""
+      dob: dob || "",
     };
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().required(),
     password: Yup.string().required(),
-    email: Yup.string().required()
+    email: Yup.string().required(),
   }),
   handleSubmit(values, { setStatus, resetForm }) {
     axios
-      .post("https://friend-finder-levi.herokuapp.com/api/auth/register", values)
+      .post(
+        "https://friend-finder-levi.herokuapp.com/api/auth/register",
+        values,
+      )
       .then(res => {
         console.log(res.data);
         setStatus(res.data);
         resetForm();
       })
       .catch(err => console.error(err));
-  }
+  },
 });
 
 const UserFormWithFormik = formikHOC(Signup);
