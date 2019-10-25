@@ -1,12 +1,5 @@
 import React from "react";
-// import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-// import AppPage from "./layouts/templates/AppPage";
-// import PrivateRouter from "./component/Router/PrivateRouter";
-// import Home from "./component/Home";
-// import Signup from "./component/Signup";
-// import Login from "./component/Login";
-// import Logout from "./component/Logout";
 import { loginUser } from "./actions/login";
 import AuthenticatedApp from "./component/AuthenticatedApp";
 import UnauthenticatedApp from "./component/UnauthenticatedApp";
