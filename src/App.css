@@ -1,3 +1,12 @@
+.App {
+  text-align: center;
+  background-color: orange; 
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -11,4 +20,54 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.logo-img {
+  display: flex;
+  padding: 1%;
+  background-color: grey; 
+}
+
+img {
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 5px 10px orange;
+}
+.Card--Body {
+  height: 50%;
+  justify-content: center;
+}
+.btn {
+  width: 200px;
+  font-size: 1rem;
+  border: none;
+  height: 30px;
+  margin: 5px 10px 30px;
+  transition: 0.2s ease-in;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+.btn:hover{
+  background:white;
+  color: black;
+  font-size: 1rem;
+
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+  width: 800px;
+}
+.newUserForm {
+  display: table-footer-group;
+}
+.form-control{
+  padding: 1%;
+  border-radius: 15px;
+  border: none;
+}
+label {
+text-align: left;
 }
