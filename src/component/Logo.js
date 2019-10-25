@@ -6,7 +6,7 @@ const Logo = props => (
     css={css`
       display: inline-block;
       height: 1.5rem;
-      margin-left: 2rem;
+      margin-left: 4rem;
     `}
   >
     LOGO
