@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from "react";
 import { css, jsx } from "@emotion/core";
 import CardAvatar from "./CardAvatar";
 import CardContent from "./CardContent";
@@ -35,9 +34,10 @@ const styles = css`
     visibility: hidden;
   }
 
-  &:first-child {
+  &:first-of-type {
     border-radius: 4px 4px 0 0 !important;
     border-top: none !important;
+    margin-top: 0;
   }
 
   * {
@@ -49,10 +49,6 @@ const styles = css`
 
   a {
     cursor: pointer;
-  }
-
-  &:first-child {
-    margin-top: 0;
   }
 `;
 

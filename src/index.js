@@ -1,7 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import WebFont from "webfontloader";
 import App from "./App";
+import { createStore, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import WebFont from "webfontloader";
+import reducer from "./reducers/";
+import getLocalUserId from "./utils/getLocalUserId";
+import { LOGIN_USER } from "./actions/login";
+import getUser from "./utils/getUser";
 
 WebFont.load({
   google: {
@@ -13,4 +20,25 @@ WebFont.load({
   },
 });
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const composeEnhancers =
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(thunk)),
+);
+
+if (getLocalUserId()) {
+  getUser(getLocalUserId()).then(user =>
+    store.dispatch({ type: LOGIN_USER, payload: user }),
+  );
+}
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />,
+  </Provider>,
+  document.getElementById("root"),
+);
+
+export default store;
