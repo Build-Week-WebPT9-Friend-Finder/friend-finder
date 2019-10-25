@@ -96,7 +96,7 @@ const formikHOC = withFormik({
   handleSubmit(values, { setStatus, resetForm }) {
     axios
       .post(
-        "https://friend-finder-levi.herokuapp.com/api/auth/login",
+        `${process.env.REACT_APP_BACKEND_BASE_URL}/auth/login`,
         values,
       )
       .then(res => {
