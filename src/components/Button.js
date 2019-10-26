@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const SurveyButton = styled.button`
 width: 100px;
@@ -20,9 +20,6 @@ font-size: 0.9rem;
 }
 `;
 
-
 export default function UseButton() {
-    return(
-   <SurveyButton>Take Survey</SurveyButton>
-    )
+  return <SurveyButton>Take Survey</SurveyButton>;
 }

@@ -1,0 +1,33 @@
+.center-text {
+  text-align: center;
+}
+
+// Element must be display: block with width < 100%
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Absolutely centers the item itself
+// Item must be display: block
+.abs-center {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Absolutely centers item's CONTENTS
+.abs-center-flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}

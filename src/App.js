@@ -1,30 +1,14 @@
-
-import React from 'react';
-import './App.css';
-import WelcomeToSurvey from "./components/Surveycard1";
-import Logo from "./components/Logo";
-import SurveyQuestionnaire from "./components/Questionnaire";
-
 import React from "react";
-import "./App.css";
 import ReactRouter from "./component/Router/Router";
 import "./sass/index.scss";
-
+import SqueezePage from "./layouts/templates/SqueezePage";
 
 function App() {
   return (
     <div className="App">
-
-      <Logo />
-      <div className="Container">
-      <WelcomeToSurvey />
-      </div>
-      <div>
-      <SurveyQuestionnaire />
-      </div>
-
-      <ReactRouter />
-
+      <SqueezePage>
+        <ReactRouter />
+      </SqueezePage>
     </div>
   );
 }

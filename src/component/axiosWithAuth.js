@@ -1,13 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
+import getToken from "../utils/getToken";
 
-export const axiosWithAuth = () => {
-  const auth_token = localStorage.getItem('auth_token');
+const axiosWithAuth = () => {
+  const auth_token = getToken();
 
   return axios.create({
-    baseURL: 'https://friend-finder-levi.herokuapp.com/api',
+    baseURL: "https://friend-finder-levi.herokuapp.com/api",
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+      Authorization: auth_token,
+    },
   });
 };
-// "Authorization": auth_token,
+
+export default axiosWithAuth;
+export { axiosWithAuth };
