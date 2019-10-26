@@ -4,7 +4,7 @@ import getLocalUserId from "./getLocalUserId";
 const getUser = async id => {
   const userId = id ? id : getLocalUserId();
   const res = await axiosWithAuth().get(
-    `https://friend-finder-levi.herokuapp.com/api/user/${userId}`,
+    `${process.env.REACT_APP_BACKEND_BASE_URL}/user/${userId}`,
   );
 
   const { data } = await res;
