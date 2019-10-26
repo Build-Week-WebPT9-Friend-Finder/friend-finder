@@ -1,26 +1,19 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import AppPage from "./layouts/templates/AppPage";
-import PrivateRouter from "./component/Router/PrivateRouter";
-import Home from "./component/Home";
-import Signup from "./component/Signup";
-import Login from "./component/Login";
-import Logout from "./component/Logout";
+import { connect } from "react-redux";
+import { loginUser } from "./actions/login";
+import AuthenticatedApp from "./component/AuthenticatedApp";
+import UnauthenticatedApp from "./component/UnauthenticatedApp";
 import "./sass/index.scss";
 
-function App() {
-  return (
-    <>
-      <AppPage>
-        <Switch>
-          <PrivateRouter path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/logout" exact component={Logout} />
-        </Switch>
-      </AppPage>
-    </>
-  );
+function App({ login, loginUser }) {
+  return login ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 }
 
-export default App;
+const mapStateToProps = state => ({
+  login: state.login,
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser },
+)(App);

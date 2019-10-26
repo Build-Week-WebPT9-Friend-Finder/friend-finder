@@ -12,11 +12,11 @@ const styles = css`
   width: 100%;
 `;
 
-const AppPage = ({ children }) => (
+const AppPage = ({ auth, children }) => (
   <div className="app-wrapper" css={styles}>
     <AppHeader>
       <Logo />
-      <AppNav />
+      <AppNav auth={auth} />
     </AppHeader>
     {children}
   </div>

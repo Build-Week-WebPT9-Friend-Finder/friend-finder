@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import React from "react";
 import { css, jsx } from "@emotion/core";
 import { NavLink } from "react-router-dom";
 import { primaryDark, greyLight } from "../sass/_colors.scss";
@@ -28,31 +29,25 @@ const activeStyle = {
   paddingBottom: ".25rem",
 };
 
-const AppNav = () => {
+const AppNav = ({ auth }) => {
   return (
     <nav css={styles}>
-      <NavLink exact to="/" activeStyle={activeStyle}>
-        Home
-      </NavLink>
+      {auth ? (
+        <React.Fragment>
+          <NavLink exact to="/" activeStyle={activeStyle}>
+            Home
+          </NavLink>
 
-      <NavLink exact to="/login" activeStyle={activeStyle}>
-        Login
-      </NavLink>
-
-      <NavLink exact to="/signup" activeStyle={activeStyle}>
-        Signup
-      </NavLink>
-
-      <span>
-        <NavLink
-          className="logout"
-          exact
-          to="/logout"
-          activeStyle={activeStyle}
-        >
-          Logout
-        </NavLink>
-      </span>
+          <NavLink
+            className="logout"
+            exact
+            to="/logout"
+            activeStyle={activeStyle}
+          >
+            Logout
+          </NavLink>
+        </React.Fragment>
+      ) : null}
     </nav>
   );
 };

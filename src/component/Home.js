@@ -64,7 +64,6 @@ function Home({ getAllUsers, users, login }) {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     users: state.users,
     login: state.login,
