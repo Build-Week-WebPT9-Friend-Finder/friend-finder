@@ -106,7 +106,7 @@ const formikHOC = withFormik({
         getUser(res.data.user_id).then(user => {
           store.dispatch({
             type: LOGIN_USER,
-            payload: user,
+            payload: { user, loggedIn: true },
           });
         });
       })
