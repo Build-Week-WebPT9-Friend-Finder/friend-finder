@@ -19,7 +19,7 @@ function Home({ getAllUsers, users, login }) {
         getAllUsers();
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   }, [getAllUsers]);
 

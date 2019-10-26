@@ -1,19 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
-import { loginUser } from "./actions/login";
+import { useSelector } from "react-redux";
 import AuthenticatedApp from "./component/AuthenticatedApp";
 import UnauthenticatedApp from "./component/UnauthenticatedApp";
 import "./sass/index.scss";
 
-function App({ login, loginUser }) {
+function App() {
+  const login = useSelector(state => state.login);
+
   return login ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 }
 
-const mapStateToProps = state => ({
-  login: state.login,
-});
-
-export default connect(
-  mapStateToProps,
-  { loginUser },
-)(App);
+export default App;
