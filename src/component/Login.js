@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import axios from "axios";
 import store from "../index";
 import { Link } from "react-router-dom";
-import { getUser } from "../utils";
 import ErrorMsg from "./ErrorMsg";
 import { LOGIN_USER } from "../actions/login";
 
@@ -77,11 +76,9 @@ const formikHOC = withFormik({
         console.log(res.data);
         localStorage.setItem("access_token", res.data.token);
         localStorage.setItem("logged_in_user_id", res.data.user_id);
-        getUser(res.data.user_id).then(user => {
-          store.dispatch({
-            type: LOGIN_USER,
-            payload: { user, loggedIn: true },
-          });
+        store.dispatch({
+          type: LOGIN_USER,
+          payload: res.data.user,
         });
       })
       .catch(err => console.error(err));
