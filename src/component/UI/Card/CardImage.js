@@ -7,6 +7,13 @@ const styles = css`
   flex: 0 0 auto;
   padding: 0;
   position: relative;
+  text-align: center;
+
+  img {
+    height: auto;
+    max-width: 290px;
+    min-width: 200px;
+  }
 `;
 
 const CardImage = ({ img, alt = "", className = "" }) => (

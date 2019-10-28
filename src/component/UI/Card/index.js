@@ -34,12 +34,6 @@ const styles = css`
     visibility: hidden;
   }
 
-  &:first-of-type {
-    border-radius: 4px 4px 0 0 !important;
-    border-top: none !important;
-    margin-top: 0;
-  }
-
   * {
     margin-block-end: 0;
     margin-block-start: 0;

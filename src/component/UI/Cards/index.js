@@ -4,7 +4,7 @@ import { css, jsx } from "@emotion/core";
 const styles = css`
   display: flex;
   flex-wrap: wrap;
-  margin: -0.875rem -0.5rem;
+  margin: 0 auto;
 
   &::after {
     clear: both;
@@ -17,13 +17,14 @@ const styles = css`
 
   > .card {
     border: none;
-    border-radiux: 4px;
+    border-radius: 4px;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     display: flex;
     flex-direction: column;
     float: none;
     font-size: 1rem;
-    margin: 0.875rem 0.5rem;
+    justify-content: center;
+    margin: 0.5rem;
     max-width: 100%;
     min-height: 0;
     padding: 0;
