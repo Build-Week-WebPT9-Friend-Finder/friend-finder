@@ -1,32 +1,8 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
-
-const headingStyles = css`
-  margin: 1.5rem auto;
-  text-align: center;
-`;
-
-const formStyles = css`
-  margin: 1rem auto;
-  max-width: 20rem;
-  width: 100%;
-
-  form {
-    margin: 0 auto;
-    width: 100%;
-  }
-`;
-
-const paraStyles = css`
-  margin: 1rem auto;
-  text-align: center;
-  width: 50%;
-`;
 
 const Signup = ({ errors, touched, status }) => {
   const [user, setUser] = useState([]);
@@ -39,8 +15,8 @@ const Signup = ({ errors, touched, status }) => {
 
   return (
     <React.Fragment>
-      <h1 css={headingStyles}>Sign Up to Find Friends</h1>
-      <div css={formStyles}>
+      <h1>Sign Up to Find Friends</h1>
+      <div className="form-container">
         <Form>
           <label>Name</label>
           <Field text="type" name="name" placeholder="Name" />
@@ -64,7 +40,7 @@ const Signup = ({ errors, touched, status }) => {
           </button>
         </Form>
       </div>
-      <p css={paraStyles}>
+      <p className="login-signup-meta">
         <small>
           Already have an account?{" "}
           <Link to="/login">Sign in here</Link>.

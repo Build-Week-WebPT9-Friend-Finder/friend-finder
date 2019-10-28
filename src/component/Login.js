@@ -1,36 +1,12 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import store from "../index";
 import { Link } from "react-router-dom";
+import { getUser } from "../utils";
 import ErrorMsg from "./ErrorMsg";
 import { LOGIN_USER } from "../actions/login";
-import getUser from "../utils/getUser";
-
-const headingStyles = css`
-  margin: 1.5rem auto;
-  text-align: center;
-`;
-
-const formStyles = css`
-  margin: 1rem auto;
-  max-width: 20rem;
-  width: 100%;
-
-  form {
-    margin: 0 auto;
-    width: 100%;
-  }
-`;
-
-const paraStyles = css`
-  margin: 1rem auto;
-  text-align: center;
-  width: 50%;
-`;
 
 const Login = ({ errors, touched, status }) => {
   const [user, setUser] = useState([]);
@@ -43,10 +19,8 @@ const Login = ({ errors, touched, status }) => {
 
   return (
     <React.Fragment>
-      <h1 css={headingStyles}>
-        Sign in to Your Friend Finder Account
-      </h1>
-      <div css={formStyles}>
+      <h1>Sign in to Your Friend Finder Account</h1>
+      <div className="form-container">
         <Form>
           <label>Email</label>
           <Field type="email" name="email" placeholder="Email" />
@@ -69,7 +43,7 @@ const Login = ({ errors, touched, status }) => {
           </button>
         </Form>
       </div>
-      <p css={paraStyles}>
+      <p className="login-signup-meta">
         <small>
           Need an account? <Link to="/signup">Sign up here</Link>.
         </small>
