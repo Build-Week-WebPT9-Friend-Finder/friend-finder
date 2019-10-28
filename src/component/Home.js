@@ -9,6 +9,7 @@ import Card, {
   CardMeta,
   CardDescription,
   CardAvatar,
+  CardImage,
 } from "./UI/Card";
 
 function Home({ getAllUsers, users, login }) {
@@ -33,6 +34,7 @@ function Home({ getAllUsers, users, login }) {
       <Cards>
         {users.users.map(user => (
           <Card key={user.user_id}>
+            <CardImage img={user.profile_img || ""}></CardImage>
             <p>{user.name}</p>
             <p>{user.bio}</p>
             <p>{user.dob}</p>
@@ -48,7 +50,7 @@ function Home({ getAllUsers, users, login }) {
             <CardHeader>
               <CardAvatar
                 style={{ marginRight: "8px" }}
-                img="https://randomuser.me/api/portraits/men/75.jpg"
+                img={login.profile_img || ""}
               />
               {login.name}
               <CardMeta>Email: {login.email}</CardMeta>
