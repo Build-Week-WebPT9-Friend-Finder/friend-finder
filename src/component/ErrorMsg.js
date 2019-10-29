@@ -7,6 +7,8 @@ const ErrorMsg = ({ message }) => (
     css={css`
       color: ${danger};
       font-weight: bold;
+      margin-top: -10px;
+      margin-bottom: 0.5rem;
     `}
   >
     {message}

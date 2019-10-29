@@ -18,7 +18,8 @@ form {
   flex-direction: column;
 
   label {
-    font-size: 20px;
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
   }
 
   input {
@@ -31,7 +32,21 @@ form {
     &:focus {
       // replaces outline rule for a11y
       border: solid 1px $colorPrimary;
-      box-shadow: inset 1px 0 2px transparentize($colorPrimary, 0.5);
+      box-shadow: inset 1px 0 1px transparentize($colorPrimary, 0.5);
+    }
+  }
+
+  textarea {
+    border: solid 1px #080808;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none; // added border on focus for a11y
+    padding: 10px 10px;
+
+    &:focus {
+      // replaces outline rule for a11y
+      border: solid 1px $colorPrimary;
+      box-shadow: inset 1px 0 1px transparentize($colorPrimary, 0.5);
     }
   }
 
@@ -40,5 +55,12 @@ form {
     border-radius: 10px;
     font-size: 15px;
     outline: none;
+    background-color: $colorPrimaryDark;
+    border: none !important;
+    color: $colorWhite;
+    cursor: pointer;
+    font-family: $bodyFontsAlt;
+    font-weight: bold;
+    letter-spacing: 0.8px;
   }
 }

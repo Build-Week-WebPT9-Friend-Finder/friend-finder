@@ -19,21 +19,22 @@ const Signup = ({ errors, touched, status }) => {
       <div className="form-container">
         <Form>
           <label>Name</label>
-          <Field text="type" name="name" placeholder="Name" />
+          <Field type="text" name="name" placeholder="Name" />
           {touched.name && errors.name && <p>{errors.name}</p>}
 
           <label>Email</label>
-          <Field text="type" name="email" placeholder="Email" />
+          <Field type="email" name="email" placeholder="Email" />
           {touched.email && errors.email && <p>{errors.email}</p>}
 
           <label>Password</label>
-          <Field text="type" name="password" placeholder="Password" />
+          <Field
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
           {touched.password && errors.password && (
             <p>{errors.password}</p>
           )}
-
-          <label>Date of Birth</label>
-          <Field text="type" name="dob" placeholder="Date of Birth" />
 
           <button type="submit" value="Login">
             Submit!
@@ -51,18 +52,21 @@ const Signup = ({ errors, touched, status }) => {
 };
 
 const formikHOC = withFormik({
-  mapPropsToValues({ name, password, email, dob }) {
+  mapPropsToValues({ name, password, email }) {
     return {
       name: name || "",
       email: email || "",
       password: password || "",
-      dob: dob || "",
     };
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().required(),
-    password: Yup.string().required(),
-    email: Yup.string().required(),
+    password: Yup.string()
+      .required()
+      .min(8),
+    email: Yup.string()
+      .required()
+      .email(),
   }),
   handleSubmit(values, { setStatus, resetForm }) {
     axios

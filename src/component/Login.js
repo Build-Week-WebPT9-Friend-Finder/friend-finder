@@ -17,7 +17,7 @@ const Login = ({ errors, touched, status }) => {
   }, [status, user]);
 
   return (
-    <React.Fragment>
+    <>
       <h1>Sign in to Your Friend Finder Account</h1>
       <div className="form-container">
         <Form>
@@ -47,7 +47,7 @@ const Login = ({ errors, touched, status }) => {
           Need an account? <Link to="/signup">Sign up here</Link>.
         </small>
       </p>
-    </React.Fragment>
+    </>
   );
 };
 

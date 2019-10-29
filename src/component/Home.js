@@ -8,9 +8,12 @@ import Card, {
   CardContent,
   CardMeta,
   CardDescription,
-  CardAvatar,
   CardImage,
+  CardExtra,
 } from "./UI/Card";
+import ButtonRow from "./UI/ButtonRow";
+import ButtonPrimary from "./UI/Button/ButtonPrimary";
+import ButtonDanger from "./UI/Button/ButtonDanger";
 
 function Home({ getAllUsers, users, login }) {
   useEffect(() => {
@@ -30,37 +33,28 @@ function Home({ getAllUsers, users, login }) {
 
   return (
     <div>
-      <h1>List of Users</h1>
+      <h1>Find New Friends</h1>
       <Cards>
         {users.users.map(user => (
-          <Card key={user.user_id}>
+          <Card key={user.email}>
             <CardImage img={user.profile_img || ""}></CardImage>
-            <p>{user.name}</p>
-            <p>{user.bio}</p>
-            <p>{user.dob}</p>
-            <p>{user.gender}</p>
-            <p>{user.location}</p>
+            <CardContent>
+              <CardHeader>
+                {user.name}
+                <CardMeta style={{ fontWeight: "normal" }}>
+                  {user.gender} from {user.location}
+                </CardMeta>
+              </CardHeader>
+              <CardDescription>{user.bio}</CardDescription>
+              <CardExtra>Born on {user.dob}</CardExtra>
+              <ButtonRow>
+                <ButtonPrimary>Request</ButtonPrimary>
+                <ButtonDanger>Reject</ButtonDanger>
+              </ButtonRow>
+            </CardContent>
           </Card>
         ))}
       </Cards>
-      <h2>Logged In User</h2>
-      {login ? (
-        <Card>
-          <CardContent>
-            <CardHeader>
-              <CardAvatar
-                style={{ marginRight: "8px" }}
-                img={login.profile_img || ""}
-              />
-              {login.name}
-              <CardMeta>Email: {login.email}</CardMeta>
-            </CardHeader>
-            <CardDescription>Born on {login.dob}</CardDescription>
-          </CardContent>
-        </Card>
-      ) : (
-        <div>No user logged in! That's not supposed to happen...</div>
-      )}
     </div>
   );
 }

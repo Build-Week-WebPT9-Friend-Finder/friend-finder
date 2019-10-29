@@ -11,7 +11,7 @@ const styles = css`
   margin: 0 0;
   max-width: 100%;
   min-height: 0 !important;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0;
   position: static;
   top: 0;
   transition: color 0.1s ease;
